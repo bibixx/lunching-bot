@@ -4,10 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@serverless-chrome/lambda": "^1.0.0-55",
     "dotenv": "^6.1.0",
-    "fs-readfile-promise": "^3.0.1",
     "googleapis": "27",
-    "puppeteer": "^1.9.0"
+    "puppeteer": "^1.9.0",
+    "serverless-plugin-chrome": "^1.0.0-55",
+    "superagent": "^4.0.0-beta.5"
   },
   "scripts": {
     "start": "node index.js"

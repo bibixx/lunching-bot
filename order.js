@@ -1,9 +1,15 @@
 const puppeteer = require('puppeteer');
+const getChrome = require("./getChrome");
 
 const getText = async el => await (await el.getProperty('innerText')).jsonValue();
 
 const order = async (place, product) => {
-  const browser = await puppeteer.launch({headless: true});
+  const chrome = await getChrome();
+
+  const browser = await puppeteer.connect({
+    browserWSEndpoint: chrome.endpoint
+  });
+
   const page = await browser.newPage();
   await page.goto('https://lunching.pl/homepage');
   
@@ -47,6 +53,11 @@ const order = async (place, product) => {
   await page.waitFor('app-thank-you');
 
   await browser.close();
+
+  await new Promise(resolve => setTimeout(() => {
+    chrome.instance.kill();
+    resolve();
+  }, 0));
 };
 
 module.exports = order;

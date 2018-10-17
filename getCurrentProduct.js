@@ -1,6 +1,5 @@
 const fs = require('fs');
 const readline = require('readline');
-const readFilePromise = require('fs-readfile-promise');
 const { google } = require('googleapis');
 
 // If modifying these scopes, delete token.json.
