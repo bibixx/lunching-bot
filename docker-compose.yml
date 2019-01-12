@@ -1,0 +1,16 @@
+version: '2'
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: "docker/Dockerfile"
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+  postgres:
+    image: postgres:alpine
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
