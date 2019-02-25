@@ -1,4 +1,4 @@
-import { controller } from 'src/bot';
-import hearsRegister from 'src/messages/hearsRegister';
+import logger from 'src/utils/logger';
+import botController from 'src/bot';
 
-controller.hears(['register'], ['direct_message'], hearsRegister);
+logger.info('Hello world!');
